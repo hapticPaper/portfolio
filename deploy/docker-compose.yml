@@ -1,0 +1,14 @@
+version: '3'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+    command: gunicorn -b :$PORT app:app
+    
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
